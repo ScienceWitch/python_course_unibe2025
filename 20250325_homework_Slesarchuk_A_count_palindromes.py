@@ -1,4 +1,4 @@
-#take a string and count 8 char palindromes
+#take a string and count 8-character palindromes
 
 def count_palindromes(s):
     counter = 0
@@ -13,5 +13,10 @@ print()
 
 #example - Zika virus https://www.ncbi.nlm.nih.gov/nuccore/226377833
 zika_virus_dna = open('Zika_virus_sequence.txt', 'r')
-zika_virus_dna = ''.join(zika_virus_dna.readlines()[1:])
+zika_virus_dna = ''.join(zika_virus_dna.readlines()[1:]) #the string includes the '\n', so it's not 59 palindromes, better:
+#tmp = []
+#for line in f:
+#if line[0] != '#':
+#tmp.append(line.strip())
+#clean_string = ''.join(tmp)
 print(count_palindromes(zika_virus_dna), 'palindromes in Zika virus')
