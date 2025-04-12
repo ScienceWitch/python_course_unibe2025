@@ -19,10 +19,11 @@ for line in zika_virus_dna:
         tmp.append(line.strip())
     zika_virus_dna_string = ''.join(tmp)
 
-print(count_palindromes(zika_virus_dna_string), 'palindromes of length=8 in Zika virus')
+palindromes_in_Zika = count_palindromes(zika_virus_dna_string)
+print(palindromes_in_Zika, 'palindromes of length=8 in Zika virus')
 
 #make a list for number of palindromes in a random genome
-zika_virus_random_palindromes = [count_palindromes(zika_virus_dna_string)]
+zika_virus_random_palindromes = [palindromes_in_Zika]
 
 #make a list from dna string for a random shuffle
 import numpy as np
@@ -39,12 +40,27 @@ print(zika_virus_random_palindromes)
 
 #plot the distribution of number of palindroms with length = 8 in 100 randomized Zika virus genomes
 import matplotlib.pyplot as plt
-vals = zika_virus_random_palindromes
-plt.hist(vals)
+
+#plot the histogram
+fig, ax = plt.subplots()
+n, bins, patches = ax.hist(zika_virus_random_palindromes)
+
+#add title and axes labels
+plt.title('Number of palindromes of length 8 in randomized Zika virus DNA')
 plt.xlabel('Number of palindromes of length 8')
-plt.ylabel('Number of number of palindromes of length 8')
+plt.ylabel('Counts')
+
+#add info
+ax.text(18, 22, s=f'Palindromes in Zika virus: 41\nAverage number of palindromes: {int(np.mean(bins))}', fontsize='small')
+
+#color the bar with Zika virus
+for k in range(len(n)):
+    if palindromes_in_Zika > bins[k] and palindromes_in_Zika < bins[k+1]:
+        patches[k].set_facecolor('grey')
+        ax.axvline(x=palindromes_in_Zika, color="grey", linestyle='--')
+
+plt.savefig('zika_histogram.pdf', bbox_inches='tight')
 plt.show()
-plt.savefig('zika_histogram.pdf')
 plt.close()
 
 
