@@ -22,10 +22,15 @@ for line in zika_virus_dna:
 palindromes_in_Zika = count_palindromes(zika_virus_dna_string)
 print(palindromes_in_Zika, 'palindromes of length=8 in Zika virus')
 
+<<<<<<< HEAD
 #make a list for number of palindromes in a random genome
 zika_virus_random_palindromes = [palindromes_in_Zika]
+=======
+#make a list for a number of palindromes in a random genome
+zika_virus_random_palindromes = [count_palindromes(zika_virus_dna_string)]
+>>>>>>> 90fd6525acf5ed59cbc41fc6d89e253144eac903
 
-#make a list from dna string for a random shuffle
+#make a list from the DNA string for a random shuffle
 import numpy as np
 
 zika_virus_dna_list = np.array([char for char in zika_virus_dna_string])
