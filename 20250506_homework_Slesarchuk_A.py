@@ -30,16 +30,12 @@ print("Redundant columns:", find_redundant_columns(who))
 
 import matplotlib.pyplot as plt
 
-# Step 1: Identify columns related to new cases
+# find total number of new cases
 case_cols = [col for col in who.columns if col.startswith('new_')]
-
-# Step 2: Create a new column for total new cases
 who['total_new_cases'] = who[case_cols].sum(axis=1, skipna=True)
-
-# Step 3: Group by year and sum
 cases_by_year = who.groupby('year')['total_new_cases'].sum()
 
-# Step 4: Plot
+# plot
 plt.figure(figsize=(10, 6))
 cases_by_year.plot(kind='line', marker='o')
 plt.title('Total New Cases by Year')
