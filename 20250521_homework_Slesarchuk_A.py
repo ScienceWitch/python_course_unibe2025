@@ -53,3 +53,5 @@ sns.heatmap(heatmap_data, annot=True, fmt=".2f", cmap="vlag", center=0, linewidt
 plt.title("Top Biomarkers Associated with Survival")
 plt.tight_layout()
 plt.show()
+
+#better not to use spearman, because you drop animals that didn't die, a big chunk of data. Better survival analysis
