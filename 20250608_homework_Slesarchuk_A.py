@@ -6,8 +6,8 @@ print(data.head())
 from sklearn.model_selection import train_test_split
 
 # split data
-train_data, temp_data = train_test_split(data, test_size=0.4)
-val_data, test_data = train_test_split(temp_data, test_size=0.5)
+train_data, temp_data = train_test_split(data, test_size=0.4, random_state=2)
+val_data, test_data = train_test_split(temp_data, test_size=0.5, random_state=2)
 print('train_size = {}, validation_size = {}, test_size ={}'.format(len(train_data), len(val_data), len(test_data)))
 
 x_train = train_data[['x']].values
